@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from 'react'
 import { FaUser, FaShield, FaTrash2, FaPlus, FaHistory, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa'
+import { Button } from '@/components/ui/Button'
+import { Table } from '@/components/ui/Table'
+import { Badge } from '@/components/ui/Badge'
+import { InputForward as Input } from '@/components/ui/Input'
+import type { AdminUser, AuditLog as AuditLogType } from '@/lib/types'
 
-interface User {
-  id: number
-  username: string
-  role: string
+interface User extends AdminUser {
   created_at: string
 }
 
-interface AuditLog {
-  id: number
+interface AuditLog extends AuditLogType {
   therapist_name: string
   activity_name: string
   first_name: string

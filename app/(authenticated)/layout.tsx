@@ -1,3 +1,5 @@
+'use client'
+
 import Sidebar from '@/components/Sidebar'
 
 export default function AuthenticatedLayout({
@@ -6,10 +8,12 @@ export default function AuthenticatedLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-surface">
       <Sidebar />
-      <main className="flex-1 md:ml-0">
-        {children}
+      <main className="flex-1 w-full overflow-auto">
+        <div className="p-4 md:p-8">
+          {children}
+        </div>
       </main>
     </div>
   )

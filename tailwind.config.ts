@@ -6,6 +6,10 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['var(--font-inter)'],
+      display: ['var(--font-fredoka)'],
+    },
     extend: {
       colors: {
         primary: '#1e3a5f',
