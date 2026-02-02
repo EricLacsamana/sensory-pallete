@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #0f1419 0%, #1a202c 100%);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Game Design Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, input, select, textarea {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(254, 186, 73, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(254, 186, 73, 0.5);
+}
+
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #feba49;
+  outline-offset: 2px;
+}
+
+/* Game card elevation effect */
+.game-card {
+  @apply relative;
+}
+
+.game-card::before {
+  content: '';
+  @apply absolute inset-0 rounded-xl opacity-0;
+  background: radial-gradient(circle at top left, rgba(254, 186, 73, 0.2), transparent);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.game-card:hover::before {
+  @apply opacity-100;
+}
+
+/* Glowing border effect */
+.glow-border {
+  @apply relative;
+  background: linear-gradient(135deg, #1a202c, #2d3748) padding-box;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.glow-border::before {
+  @apply absolute inset-0 rounded-lg -z-10;
+  background: linear-gradient(135deg, #feba49, #ff6b35);
+  opacity: 0.3;
+}
+
+.glow-border:hover::before {
+  opacity: 0.6;
+}
+
+/* Smooth page transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
